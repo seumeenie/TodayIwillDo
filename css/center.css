@@ -1,0 +1,15 @@
+.center {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .center .greetings_text {
+    color: rgb(234, 181, 67);
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  
+  .center .name {
+    margin-bottom: 30px;
+  }
