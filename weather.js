@@ -9,7 +9,7 @@ const COORDS = "coords";
 //fetch를 사용해 api데이터를 불러옴
 function getWeather(lat, lng){
     fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${API_KEY}&units=metric`)
-    .then(function(response){ //데이터 로딩이 다 끝나면 함수를 호출시키는 then 사용
+    .then(function(response){ //이전 작업이 완전히 끝나면 괄호 안 함수를 호출시키는 then 사용(사용하지 않았을 시 이전 작업이 다 완료되지 않았어도 그 다음 함수가 실행됨. ->오류 발생)
         return response.json();
     }).then(function(json){ //json 데이터가 잘 준비되면
         const temperature = json.main.temp;
@@ -37,6 +37,7 @@ function handleGeoError(){
     console.log("Cant access geo location");
 }
 //좌표를 요청하는 함수 (navigator api 사용)
+//getCurrentPosition(a,b) : 유저의 현재 위치를 요청하고 성공시 handleGeoSuccess, 실패시 handleGeoError 함수를 실행 
 function askForCoords(){
     navigator.geolocation.getCurrentPosition(handleGeoSuccess, handleGeoError)
 }
