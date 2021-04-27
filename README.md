@@ -1,5 +1,7 @@
 # TodayIwillDo
 
+Make a small webpage with VanillaJS
+
 - make a realtime clock
 - save username to localStorage
 - make todo-list
